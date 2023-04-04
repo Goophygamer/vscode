@@ -8,7 +8,7 @@ const initialState= {
     message:''
 }
 //create logs
-export const createLog = createAsyncThunk('/logs/create',async(logData,thunkAPI)=>{
+export const createLog = createAsyncThunk('logs/create',async(logData,thunkAPI)=>{
     try {
         //take token if necessary
         return await logService.createLog(logData)
@@ -20,7 +20,7 @@ export const createLog = createAsyncThunk('/logs/create',async(logData,thunkAPI)
     }
 })
 //get logs
-export const getLogs = createAsyncThunk('/logs/create/getAll',async(_,thunkAPI)=>{
+export const getLogs = createAsyncThunk('logs/create/getAll',async(_,thunkAPI)=>{
     try {
         return await logService.getLogs()
         
@@ -33,9 +33,9 @@ export const getLogs = createAsyncThunk('/logs/create/getAll',async(_,thunkAPI)=
 })
 
 //delete logs 
-export const deleteLogs = createAsyncThunk('/logs/delete',async(logId,thunkAPI)=>{
+export const deleteLogs = createAsyncThunk('logs/delete',async(id,thunkAPI)=>{
     try {
-        return await logService.deleteLogs(logId)
+        return await logService.deleteLogs(id)
         
     } catch (error) {
         const message = (error.response && error.data && error.response.data.message) || 

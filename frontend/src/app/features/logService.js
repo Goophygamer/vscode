@@ -11,8 +11,8 @@ const getLogs = async ()=>{
     return response.data
 }
 
-const deleteLogs = async (logId)=> {
-    const response = await axios.delete(API_URL + logId)
+const deleteLogs = async (id) => {
+    const response = await axios.delete(API_URL + id)
     return response.data
 }
 

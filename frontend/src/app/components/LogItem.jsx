@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"
+import { useDispatch } from 'react-redux'
 import { deleteLogs} from '../features/logSlice'
 
 function LogItem({logs}) {
@@ -10,7 +10,7 @@ function LogItem({logs}) {
         }
         </div>
         <h2> {logs.text} </h2>
-        <button onClick={()=> dispatch(deleteLogs(logs._id))} className="close"> X </button>
+        <button onClick={()=> dispatch(deleteLogs(logs._id))} className="close">X</button>
     </div>
     
   )

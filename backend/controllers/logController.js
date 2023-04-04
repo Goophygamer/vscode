@@ -1,7 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const Logs = require('../model/logsModel')
 
-const getLogs =asyncHandler(async (req,res)=>{
+const getLogs =asyncHandler(async (res)=>{
     const logs = await Logs.find()
     res.json({logs})
 })
@@ -32,14 +32,14 @@ const updateLogs =asyncHandler( async (req,res)=>{
 const deleteLogs = asyncHandler(async (req,res)=>{
     const logs = await Logs.findById(req.params.id)
     if(!logs){
-     res.status(400)
+     res.status(800)
      throw new Error('no such log found ')
     }
-    await logs.remove()
+    await logs.deleteOne()
 
     res.json({id:req.params.id})
 })
 
 module.exports = {
-    getLogs,setLogs,updateLogs,deleteLogs
+    getLogs,setLogs,updateLogs,deleteLogs,
 }
