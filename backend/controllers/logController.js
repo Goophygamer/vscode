@@ -1,7 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const Logs = require('../model/logsModel')
 
-const getLogs =asyncHandler(async (res)=>{
+const getLogs =asyncHandler(async (req,res)=>{
     const logs = await Logs.find()
     res.json({logs})
 })
